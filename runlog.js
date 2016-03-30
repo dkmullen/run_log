@@ -6,20 +6,18 @@ function ViewModel() {
 		if (hours == undefined) {
 			hours = 0;
 		}
-		var totalSeconds = seconds + (minutes * 60) + (hours * 3600);
-		console.log(seconds, (minutes * 60), hours);
-		console.log(totalSeconds);
+		var totalSeconds = parseInt(seconds) + (parseInt(minutes) * 60) + 
+			(parseInt(hours) * 3600);
 		var secPerMile = totalSeconds / miles;
-		console.log(secPerMile);
 		var paceMinutes = Math.floor(secPerMile / 60);
-		console.log(paceMinutes);
-		var paceSeconds = ((secPerMile / 60) - paceMinutes) * 60;
+		var paceSeconds = Math.round(((secPerMile / 60) - paceMinutes) * 60);
 		
 		document.getElementById('date').innerHTML = date;
 		document.getElementById('miles').innerHTML = miles;
 		document.getElementById('time').innerHTML = hours + ':' + minutes +
 			':' + seconds;
 		document.getElementById('pace').innerHTML = paceMinutes + ':' + paceSeconds;
+		document.getElementById('comments').innerHTML = comments();
 	}
 }
 ko.applyBindings(new ViewModel());
