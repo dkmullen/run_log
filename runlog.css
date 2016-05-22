@@ -85,12 +85,16 @@ input {
 }
 /* The check button */
 #submit {
-	background-color: transparent;
-	background-image: url(checkmark.png);
-	border: none;
-	height: 22px;
-	width: 25px;
-	margin-top: 10px;
+    background-color: rgb(33, 88, 148);
+    border: none;
+    color: rgb(242, 242, 242);
+    padding: 15px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 2px;
+	cursor: pointer;
 }
 #time-units {
 	max-width: 35px;
