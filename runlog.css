@@ -46,44 +46,72 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
+} /* DM added the following to deal with Safari */
+textarea, input[type="text"], input[type="button"], input[type="submit"],
+input[type="number"] {
+     -webkit-appearance: none;
+     border-radius: 0;
 }
 /* -------------End of style reset ------------------ */
-
+html {
+	height: 100%;
+}
 body {
-	font-family: sans-serif;
+	font-family: 'Lato', sans-serif;
 	line-height: 1.15;
-	max-width: 400px;
-	margin: 10px auto;
+	max-width: 800px;
+	min-width: 320px;
+	margin: 0 auto;
 	text-align: center;
+	height: 100%;
+	max-height: 1024px;
+}
+#wrapper {
+	background-color: rgb(242, 242, 242);
+	height: 100%;
 }
 #title-area {
 	background-color: rgb(33, 88, 148);
 	color: rgb(242, 242, 242);
 	padding: 10px;
+
 }
 h1 {
 	font-size: 230%;
 }
-form {
-	padding: 20px 0 10px 0;
-}
-#form-wrapper {
-	margin-top: 10px;
-}
-input {
-	margin-bottom: 15px;
-}
-#wrapper {
-	background-color: rgb(242, 242, 242);
-}
-#small-text {
+.small-text {
 	font-size: 85%;
+}
+#home a {
+	color: rgb(242, 242, 242);
+	text-decoration: none;
+}
+#directions {
+	margin-bottom: 20px;
 }
 .required {
 	color: red;
-	margin-left: 5px;
+	margin-left: 2px;
 }
-/* The check button */
+#form-wrapper {
+	font-size: 110%;
+}
+form {
+	padding: 15px 0 10px 0;
+}
+input {
+	margin: 5px 0 15px 0;
+	padding: 5px;
+	font-size: 90%;
+	text-align: center;
+	border: 1px solid black;
+}
+textarea {
+	margin-top: 5px;
+	padding: 5px;
+	text-align: center;
+	border: 1px solid black;
+}
 #submit {
     background-color: rgb(33, 88, 148);
     border: none;
@@ -93,18 +121,95 @@ input {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin: 10px 2px;
+    margin: 10px;
 	cursor: pointer;
 }
-#time-units {
-	max-width: 35px;
+#time-units, #miles {
+	width: 60px;
 }
 table, th, td{
 	border: 1px solid rgb(33, 88, 148);
 	font-size: 85%;
 	margin: 0 auto;
 }
+table {
+	margin-top: 20px;
+}
 th, td {
 	padding: 5px;
+}
+@media only screen and (min-height: 500px) {
+	input {
+		margin-bottom: 20px;
+	}
+	#directions {
+		margin-bottom: 45px;
+	}
+	#submit {
+		margin: 40px;
+	}
+}
+@media only screen and (min-height: 600px) {
+	#form-wrapper {
+		font-size: 120%;
+	}
+	input {
+		margin-bottom: 30px;
+	}
+	#directions {
+		margin-bottom: 60px;
+	}
+	#button-wrapper {
+		margin-top: 50px;
+	}
+	.small-text {
+		font-size: 100%;
+	}
+	#submit {
+		margin: 50px;
+	}
+}
+@media only screen and (min-height: 700px) {
+	#form-wrapper {
+		font-size: 150%;
+	}
+	input {
+		margin-bottom: 50px;
+	}
+	#directions {
+		margin-bottom: 60px;
+	}
+	#button-wrapper {
+		margin-top: 50px;
+	}
+	.small-text {
+		font-size: 100%;
+	}
+}
+@media only screen and (min-height: 850px) {
+	#form-wrapper {
+		font-size: 150%;
+	}
+	#title-area {
+		margin-bottom: 40px;
+	}
+	#directions {
+		margin-bottom: 70px;
+	}
+	#button-wrapper {
+		margin-top: 80px;
+	}
+	.small-text {
+		font-size: 100%;
+	}
+	input {
+		margin: 10px 0 25px 0;
+	}
+	button, #submit {
+		font-size: 20px;
+	}
+	#miles {
+		width: 80px;
+	}
 }
 

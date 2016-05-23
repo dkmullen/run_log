@@ -3,7 +3,9 @@
 
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" href="../favicon.png" sizes="32x32" type="image/png"> 
 	<link rel="stylesheet" href="runlog.css">
+	<link href='https://fonts.googleapis.com/css?family=Lato:400' rel='stylesheet' type='text/css'>
 	<title>Run Log</title>
 </head>
 
@@ -11,46 +13,42 @@
 	<div id="wrapper">
 		<div id="title-area">
 			<h1>Run Log</h1>
-			<p id="small-text">dkmullen.com</p>
+			<p id="home" class="small-text"><a href="http://dkmullen.com/">dkmullen.com</a></p>
 		</div>
 		<form data-bind="submit: logMyRun">
-			<p id="small-text"><span class="required">*</span> Required field</p><br>
+			<p class="small-text" id="directions"><span class="required">*</span> Required field</p>
 			<div id="form-wrapper">
-				Date: <input type="date" name="date" data-bind="value: date" >
-					<span class="required">*</span><br>
-				Miles: <input type="number" name="miles" min="0" step="any" data-bind="value: miles" >
-					<span class="required">*</span><br>
-				Elasped Time: 
-					<input id="time-units" type="number" name="hours" min="0" 
-						data-bind="value: hours">:
-					<input id="time-units" type="number" name="minutes" min="0" max="59" 
-						data-bind="value: minutes">:
-					<input id="time-units" type="number" name="seconds" min="0" max="59" 
-						data-bind="value: seconds">
-					<span class="required">*</span><br>
-				<textarea cols="40" placeholder="Comments" data-bind="value: comments"></textarea><br>
+				<p>Date:<span class="required">*</span></p>
+				<input type="date" name="date" data-bind="value: date" >
+				<p>Miles:<span class="required">*</span></p>
+				<input id="miles" type="number" name="miles" min="0" step="any" data-bind="value: miles" >
+				<p>Elasped Time:<span class="required">*</span></p> 
+					<input id="time-units" type="number" name="hours" min="0" placeholder="hr"
+						data-bind="value: hours">:<input id="time-units" type="number" name="minutes" min="0" max="59" placeholder="min" data-bind="value: minutes">:<input id="time-units" type="number" name="seconds" min="0" max="59" placeholder="sec" data-bind="value: seconds"><br>
+				<p>Comments:</p>
+				<textarea cols="30" data-bind="value: comments"></textarea><br>
 				<input  id="submit" type="submit" value="Submit" >
+				<table id="log">
+					<tr>
+						<th>Date:</th>
+						<th>Miles:</th>
+						<th>Time:</th>
+						<th>Pace:</th>
+						<th>Comments:</th>
+					</tr>
+						<td id="date"></td>
+						<td id="miles"></td>
+						<td id="time"></td>
+						<td id="pace"></td>
+						<td id="comments"></td>
+					<tr>
+						
+					</tr>
+				</table>
 			</div>
 		</form>
-		<table id="log">
-			<tr>
-				<th>Date:</th>
-				<th>Miles:</th>
-				<th>Time:</th>
-				<th>Pace:</th>
-				<th>Comments:</th>
-			</tr>
-				<td id="date"></td>
-				<td id="miles"></td>
-				<td id="time"></td>
-				<td id="pace"></td>
-				<td id="comments"></td>
-			<tr>
-				
-			</tr>
-		</table>
 	</div>
-
+	
 <script src="knockoutjs_3-4-0.js"></script>
 <script src="runlog.js"></script>
 </body>
