@@ -1,3 +1,4 @@
+var date = ko.observable();
 var miles = ko.observable();
 var hours = ko.observable();
 var minutes = ko.observable();
@@ -11,8 +12,17 @@ function ViewModel() {
 	}
 	
 	this.logMyRun = function() {
-		if (hours() == undefined) {
+		if (date() === undefined) {
+			date('');
+		}
+		if (hours() === undefined) {
 			hours('0');
+		}
+		if (seconds() === undefined) {
+			seconds('0');
+		}
+		if (comments() === undefined) {
+			comments('');
 		}
 		var totalSeconds = parseInt(seconds()) + (parseInt(minutes()) * 60) + 
 			(parseInt(hours()) * 3600);
@@ -20,7 +30,7 @@ function ViewModel() {
 		var paceMinutes = Math.floor(secPerMile / 60);
 		var paceSeconds = Math.round(((secPerMile / 60) - paceMinutes) * 60);
 		
-		document.getElementById('date').innerHTML = date;
+		document.getElementById('date').innerHTML = date();
 		document.getElementById('miles').innerHTML = miles();
 		document.getElementById('time').innerHTML = hours() + ':' + 
 			this.pad2(minutes()) + ':' + this.pad2(seconds());
