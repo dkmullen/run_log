@@ -71,10 +71,9 @@ body {
 	height: 100%;
 }
 #title-area {
-	background-color: rgb(33, 88, 148);
+	background-color: rgb(172, 53, 63);
 	color: rgb(242, 242, 242);
 	padding: 10px;
-
 }
 h1 {
 	font-size: 230%;
@@ -86,11 +85,8 @@ h1 {
 	color: rgb(242, 242, 242);
 	text-decoration: none;
 }
-#directions {
-	margin-bottom: 20px;
-}
 .required {
-	color: red;
+	color: rgb(172, 53, 63);
 	margin-left: 2px;
 }
 #form-wrapper {
@@ -107,13 +103,16 @@ input {
 	border: 1px solid black;
 }
 textarea {
-	margin-top: 5px;
+	margin: 5px 0 5px 0;
 	padding: 5px;
 	text-align: center;
 	border: 1px solid black;
 }
+#directions {
+	font-size: 14px;
+}
 #submit {
-    background-color: rgb(33, 88, 148);
+    background-color: rgb(172, 53, 63);
     border: none;
     color: rgb(242, 242, 242);
     padding: 15px 25px;
@@ -143,21 +142,26 @@ th, td {
 		margin-bottom: 20px;
 	}
 	#directions {
-		margin-bottom: 45px;
+		margin-bottom: 30px;
 	}
 	#submit {
 		margin: 40px;
+	}
+	#form-wrapper {
+		margin-top: 20px;
 	}
 }
 @media only screen and (min-height: 600px) {
 	#form-wrapper {
 		font-size: 120%;
+		margin-top: 40px;
 	}
 	input {
 		margin-bottom: 30px;
 	}
 	#directions {
-		margin-bottom: 60px;
+		margin-bottom: 30px;
+		font-size: 16px;
 	}
 	#button-wrapper {
 		margin-top: 50px;
@@ -172,12 +176,14 @@ th, td {
 @media only screen and (min-height: 700px) {
 	#form-wrapper {
 		font-size: 150%;
+		margin-top: 50px;
 	}
 	input {
-		margin-bottom: 50px;
+		margin-bottom: 40px;
 	}
 	#directions {
-		margin-bottom: 60px;
+		margin-bottom: 40px;
+		font-size: 16px;
 	}
 	#button-wrapper {
 		margin-top: 50px;
@@ -195,6 +201,7 @@ th, td {
 	}
 	#directions {
 		margin-bottom: 70px;
+		font-size: 16px;
 	}
 	#button-wrapper {
 		margin-top: 80px;
