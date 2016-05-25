@@ -72,7 +72,7 @@ body {
 }
 #title-area {
 	background-color: rgb(172, 53, 63);
-	color: rgb(242, 242, 242);
+	color: rgb(255, 255, 255);
 	padding: 10px;
 }
 h1 {
@@ -82,7 +82,7 @@ h1 {
 	font-size: 85%;
 }
 #home a {
-	color: rgb(242, 242, 242);
+	color: rgb(255, 255, 255);
 	text-decoration: none;
 }
 .required {
@@ -108,10 +108,13 @@ textarea {
 	text-align: center;
 	border: 1px solid black;
 }
-#directions {
+#directions, #error {
 	font-size: 14px;
 }
-#submit {
+#button-wrapper {
+	margin-top: 10px;
+}
+button, #submit {
     background-color: rgb(172, 53, 63);
     border: none;
     color: rgb(242, 242, 242);
@@ -120,7 +123,7 @@ textarea {
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin: 10px;
+    margin: 4px 2px;
 	cursor: pointer;
 }
 #time-units, #miles {
@@ -140,83 +143,75 @@ th, td {
 @media only screen and (min-height: 500px) {
 	input {
 		margin-bottom: 20px;
-	}
-	#directions {
-		margin-bottom: 30px;
-	}
-	#submit {
-		margin: 40px;
-	}
+	}	
 	#form-wrapper {
 		margin-top: 20px;
 	}
+	#button-wrapper {
+		margin-top: 50px;
+	}
 }
 @media only screen and (min-height: 600px) {
+	body {
+		font-size: 110%;
+	}
+	.small-text {
+		font-size: 100%;
+	}
 	#form-wrapper {
-		font-size: 120%;
 		margin-top: 40px;
 	}
 	input {
 		margin-bottom: 30px;
 	}
-	#directions {
-		margin-bottom: 30px;
+	#directions, #error {
 		font-size: 16px;
 	}
 	#button-wrapper {
-		margin-top: 50px;
+		margin-top: 70px;
+	}
+}
+@media only screen and (min-height: 700px) {
+	body {
+		font-size: 120%;
 	}
 	.small-text {
 		font-size: 100%;
 	}
-	#submit {
-		margin: 50px;
-	}
-}
-@media only screen and (min-height: 700px) {
 	#form-wrapper {
-		font-size: 150%;
 		margin-top: 50px;
 	}
 	input {
 		margin-bottom: 40px;
 	}
-	#directions {
-		margin-bottom: 40px;
+	#directions, #error {
 		font-size: 16px;
 	}
 	#button-wrapper {
-		margin-top: 50px;
-	}
-	.small-text {
-		font-size: 100%;
+		margin-top: 70px;
 	}
 }
 @media only screen and (min-height: 850px) {
-	#form-wrapper {
-		font-size: 150%;
+	body {
+		font-size: 130%;
 	}
 	#title-area {
 		margin-bottom: 40px;
-	}
-	#directions {
-		margin-bottom: 70px;
-		font-size: 16px;
-	}
-	#button-wrapper {
-		margin-top: 80px;
-	}
+	}	
 	.small-text {
 		font-size: 100%;
 	}
 	input {
 		margin: 10px 0 25px 0;
 	}
-	button, #submit {
+	#directions, #error {
 		font-size: 20px;
 	}
-	#miles {
-		width: 80px;
+	#button-wrapper {
+		margin-top: 75px;
+	}
+	button, #submit {
+		font-size: 20px;
 	}
 }
 
