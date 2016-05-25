@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="icon" href="../favicon.png" sizes="32x32" type="image/png"> 
 	<link rel="stylesheet" href="runlog.css">
-	<link href='https://fonts.googleapis.com/css?family=Lato:400' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
 	<title>Run Log</title>
 </head>
 
@@ -32,25 +32,17 @@
 					<button type="button" data-bind="click: formReset" >Reset</button>
 					<input  id="submit" type="submit" value="Submit" >
 				</div>
-				<table id="log">
-					<tr>
-						<th>Date:</th>
-						<th>Miles:</th>
-						<th>Time:</th>
-						<th>Pace:</th>
-						<th>Comments:</th>
-					</tr>
-						<td id="date"></td>
-						<td id="miles"></td>
-						<td id="time"></td>
-						<td id="pace"></td>
-						<td id="comments"></td>
-					<tr>
-						
-					</tr>
-				</table>
 			</div>
 		</form>
+		<div id="table-wrapper" data-bind="visible: showTable">
+			<p><strong>Date:</strong> <span id="date"></span></p>
+			<p><strong>Miles:</strong> <span id="miles"></span></p>
+			<p><strong>Time:</strong> <span id="time"></span></p>
+			<p><strong>Pace:</strong> <span id="pace"></span></p>
+			<p><strong>Comments:</strong> <span id="comments"></span></p>
+			<p id="disclaimer">Database connection is not operational yet.</p>
+			<button type="button" id="close" data-bind="click: closeTable" >Close</button>	
+		</div>
 	</div>
 	
 <script src="knockoutjs_3-4-0.js"></script>

@@ -117,7 +117,7 @@ textarea {
 button, #submit {
     background-color: rgb(172, 53, 63);
     border: none;
-    color: rgb(242, 242, 242);
+    color: rgb(255, 255, 255);
     padding: 15px 25px;
     text-align: center;
     text-decoration: none;
@@ -134,11 +134,23 @@ table, th, td{
 	font-size: 85%;
 	margin: 0 auto;
 }
-table {
-	margin-top: 20px;
+#table-wrapper {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: rgb(255, 255, 255);
+	border: 1px solid rgb(172, 53, 63);
+	width: auto;
+	padding: 10px;
 }
-th, td {
-	padding: 5px;
+strong {
+	font-weight: 700;
+	color: rgb(172, 53, 63);
+}
+#disclaimer {
+	font-size: 70%;
+	margin: 10px 0 15px 0;
 }
 @media only screen and (min-height: 500px) {
 	input {

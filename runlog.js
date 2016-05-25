@@ -5,6 +5,7 @@ var minutes = ko.observable();
 var seconds = ko.observable();
 var comments = ko.observable();
 var errorMessage = ko.observable(false);
+var showTable = ko.observable(false);
 
 function ViewModel() {
 	
@@ -60,6 +61,9 @@ function ViewModel() {
 		document.getElementById('pace').innerHTML = this.pad2(paceMinutes) + 
 			':' + this.pad2(paceSeconds);
 		document.getElementById('comments').innerHTML = comments();
+		
+		this.formReset();
+		showTable(true);
 	};
 	
 	this.formReset = function() {
@@ -70,6 +74,10 @@ function ViewModel() {
 		comments(undefined);
 		errorMessage(false);
 		document.getElementById('run-log-form').reset();
+	};
+	
+	this.closeTable = function() {
+		showTable(false);
 	};
 }
 ko.applyBindings(new ViewModel());
