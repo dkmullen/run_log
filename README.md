@@ -1,5 +1,5 @@
 # Run Log
-A personal project developing a basic app for logging runs, miles, times
+Basic app for logging runs, miles, times. In this first iteration, output is only posted to the screen and the app isn't yet connected to any database.
 
 ### To Install:
 
