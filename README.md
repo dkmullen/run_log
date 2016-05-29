@@ -1,6 +1,10 @@
 # Run Log
 Basic app for logging runs, miles, times. In this first iteration, output is only posted to the screen and the app isn't yet connected to any database.
 
+## Issues:
+Mobile Safari doesn't recognize a `'max'` or `'min'` value for `input type="number"`
+Mobile Safari doesn't limit characters to digits and the decimal point for `input type="number"`
+
 ### To Install:
 
 Clone the repository and open `index.html`. Everything should work.
