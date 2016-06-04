@@ -158,11 +158,11 @@ strong {
 	margin: 10px 0 15px 0;
 }
 @media only screen and (min-height: 500px) {
-	input {
-		margin-bottom: 20px;
-	}	
 	#form-wrapper {
 		margin-top: 20px;
+	}
+	input {
+		margin-bottom: 20px;
 	}
 	#button-wrapper {
 		margin-top: 50px;

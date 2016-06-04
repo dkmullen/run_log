@@ -11,7 +11,9 @@ function ViewModel() {
 	
 	/**
 	 * Helper function to produce two digit numbers (credit at bottom of file)
-	 * If number < 10, adds a '0' to the front, otherwise adds empty string
+	 * If number < 10, adds a '0' to the front, otherwise adds empty string.
+	 * pad2 comes from fanaur at http://stackoverflow.com/questions/8043026/javascript-format-number-to-have-2-digit
+	 * Longform: if (number < 10) {return '0' + number;} else {return '' + number;}
 	 * @function
 	 * @param {number} num - Passed in from other functions
 	 * @returns a two-digit number 
@@ -131,16 +133,3 @@ function ViewModel() {
 	};
 }
 ko.applyBindings(new ViewModel());
-
-/** pad2 comes from fanaur at
-
-http://stackoverflow.com/questions/8043026/javascript-format-number-to-have-2-digit
-
-It means: 
-if (number < 10) {
-	return '0' + number;
-	}
-	else {
-		return '' + number;
-	}
-*/
