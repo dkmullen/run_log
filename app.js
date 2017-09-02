@@ -4,11 +4,18 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose'); //dkm-------->
 
+var config = require('./config'); //dkm-------->
 var index = require('./routes/index');
 var users = require('./routes/users');
+var run = require('./models/run'); //dkm---------->
 
 var app = express();
+
+mongoose.connect(config.mongoUrl); //dkm---------->
+mongoose.Promise = global.Promise; //dkm---------->
+app.set('secret', config.secret); //dkm---------->
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

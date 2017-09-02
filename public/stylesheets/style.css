@@ -70,9 +70,9 @@ body {
 	text-align: center;
 	height: 100%;
 	max-height: 1024px;
+	background-color: rgb(242, 242, 242);
 }
 #wrapper {
-	background-color: rgb(242, 242, 242);
 	height: 100%;
 }
 #title-area {
@@ -211,6 +211,10 @@ strong {
 @media only screen and (min-height: 850px) {
 	body {
 		font-size: 130%;
+		background-color: rgb(255, 255, 255);
+	}
+	#wrapper {
+		background-color: rgb(242, 242, 242);
 	}
 	#title-area {
 		margin-bottom: 40px;
