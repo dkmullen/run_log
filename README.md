@@ -1,17 +1,16 @@
 # Run Log
-Basic app for logging runs, miles, times. In this first iteration, output is only posted to the screen and the app isn't yet connected to any database.
+Basic app for logging runs, miles, times. In this first iteration, output is only posted to the screen and the app isn't yet connected to any database. **Run Log** runs on Node Express and will soon connect to a Mongo database.
 
-## Issues:
-Mobile Safari doesn't recognize a `'max'` or `'min'` value for `input type="number"`
-Mobile Safari doesn't limit characters to digits and the decimal point for `input type="number"`
 
 ### To Install:
 
-Clone the repository and open `index.html`. Everything should work.
+Clone the repository and run `npm install`, then `npm start` to run the app.
 
 ### Dependencies
 
-- [knockout.js](https://http://knockoutjs.com/) 
+- [knockout.js](http://knockoutjs.com/)
+- [Express](https://expressjs.com/)
+- [MongoDB](https://www.mongodb.com/)
 
 ### Credits
 

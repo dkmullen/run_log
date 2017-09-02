@@ -8,7 +8,7 @@ var errorMessage = ko.observable(false);
 var showTable = ko.observable(false);
 
 function ViewModel() {
-	
+
 	/**
 	 * Helper function to produce two digit numbers (credit at bottom of file)
 	 * If number < 10, adds a '0' to the front, otherwise adds empty string.
@@ -16,7 +16,7 @@ function ViewModel() {
 	 * Longform: if (number < 10) {return '0' + number;} else {return '' + number;}
 	 * @function
 	 * @param {number} num - Passed in from other functions
-	 * @returns a two-digit number 
+	 * @returns a two-digit number
 	 */
 	this.pad2 = function(number) {
 		return (number < 10 ? '0' : '') + number;
@@ -27,7 +27,7 @@ function ViewModel() {
 	 * fields are filled out. If not, flips the errorMessage observable to
 	 * true. Otherwise called the next function of the app, fillInData.
 	 * @function
-	 */	
+	 */
 	this.checkEntry = function() {
 		if (miles() === undefined) {
 			errorMessage(true);
@@ -45,7 +45,7 @@ function ViewModel() {
 	 * blank, calls pad2 to add leading zeros to some single-digit fields,
 	 * then calls logMyRun;
 	 * @function
-	 */	
+	 */
 	this.fillInData = function() {
 		/** Turns off error message in case it was on from a previous attempt.*/
 		errorMessage(false);
@@ -66,25 +66,25 @@ function ViewModel() {
 		}
 		//Checks for single digit numbers, adds a leading zero with pad2.
 		if (minutes().length < 2) {
-			minutes(this.pad2(minutes())); 
+			minutes(this.pad2(minutes()));
 		}
 		if (seconds().length < 2) {
-			seconds(this.pad2(seconds())); 
+			seconds(this.pad2(seconds()));
 		}
 		this.logMyRun();
 	};
-		
-		 
-	/** 
+
+
+	/**
 	 * Calculates the pace of the run and 'logs' it by adding data to the DOM.
 	 * Calls formReset to clear the form and toggles the observable showTable
 	 * to 'true' to display the previously hidden data div.
 	 * @function
      */
-	  
+
 	this.logMyRun = function() {
 		//parseInt because numbers from the form are delivered as strings
-		var totalSeconds = parseInt(seconds()) + (parseInt(minutes()) * 60) + 
+		var totalSeconds = parseInt(seconds()) + (parseInt(minutes()) * 60) +
 			(parseInt(hours()) * 3600);
 		var secPerMile = totalSeconds / parseFloat(miles());
 		//Math.floor finds all the complete minutes, drops remaining seconds
@@ -96,24 +96,24 @@ function ViewModel() {
 			paceMinutes = parseInt(paceMinutes) + 1;
 			paceSeconds = '00';
 		}
-		
+
 		document.getElementById('date').innerHTML = date();
 		document.getElementById('miles').innerHTML = miles();
-		document.getElementById('time').innerHTML = hours() + ':' + 
+		document.getElementById('time').innerHTML = hours() + ':' +
 			minutes() + ':' + seconds();
-		document.getElementById('pace').innerHTML = paceMinutes + ':' + 
+		document.getElementById('pace').innerHTML = paceMinutes + ':' +
 			paceSeconds;
 		document.getElementById('comments').innerHTML = comments();
-		
+
 		this.formReset();
 		showTable(true);
 	};
-	
+
 
 	/**
 	 * Empties the form; Called when Submit button is hit
 	 * @function
-	 */	
+	 */
 	this.formReset = function() {
 		miles(undefined);
 		hours(undefined);
@@ -127,7 +127,7 @@ function ViewModel() {
 	/**
 	 * Closes the results div when Close button is hit.
 	 * @function
-	 */		
+	 */
 	this.closeTable = function() {
 		showTable(false);
 	};
