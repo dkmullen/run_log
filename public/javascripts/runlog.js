@@ -124,9 +124,9 @@ function ViewModel() {
 
 			this.formReset();
 			showTable(true);
+			setTimeout(function() { showTable(false); }, 5000);
+
 		};
-
-
 
 	/**
 	 * Empties the form; Called when Submit button is hit
@@ -151,26 +151,3 @@ function ViewModel() {
 	};
 }
 ko.applyBindings(new ViewModel());
-
-/*
-$(document).ready(function(){
-		$("submit").click(function(){
-			console.log('Submit!');
-				$.post("/runs",
-				{
-					date: 2017-09-14,
-					distance: 3.4,
-					time: {
-						hours: 0,
-						minutes: 29,
-						seconds: 05
-					},
-					comments: "Great run!"
-				},
-				function(data, status){
-						console.log("Data: " + data + "\nStatus: " + status);
-				});
-		});
-});
-};
-*/
