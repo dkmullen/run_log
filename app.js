@@ -9,6 +9,7 @@ var mongoose = require('mongoose'); //dkm-------->
 var config = require('./config'); //dkm-------->
 var index = require('./routes/index');
 var users = require('./routes/users');
+var routes = require('./routes/routes'); //dkm---------->
 var run = require('./models/run'); //dkm---------->
 
 var app = express();
@@ -31,6 +32,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
+app.use('/routes', routes); //dkm---------->
+
+routes(app);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

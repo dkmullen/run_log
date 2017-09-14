@@ -76,6 +76,7 @@ function ViewModel() {
 
 
 	/**
+   * This is the 'fake' post. Needs a post method to become real.
 	 * Calculates the pace of the run and 'logs' it by adding data to the DOM.
 	 * Calls formReset to clear the form and toggles the observable showTable
 	 * to 'true' to display the previously hidden data div.
@@ -105,9 +106,26 @@ function ViewModel() {
 			paceSeconds;
 		document.getElementById('comments').innerHTML = comments();
 
-		this.formReset();
-		showTable(true);
-	};
+		console.log(miles());
+			$.post("/runs",
+			{
+				date: date(),
+				distance: miles(),
+				time: {
+					hours: hours(),
+					minutes: minutes(),
+					seconds: seconds()
+				},
+				comments: comments()
+			},
+			function(data, status){
+					console.log("Data: " + data + "\nStatus: " + status);
+			});
+
+			this.formReset();
+			showTable(true);
+		};
+
 
 
 	/**
@@ -133,3 +151,26 @@ function ViewModel() {
 	};
 }
 ko.applyBindings(new ViewModel());
+
+/*
+$(document).ready(function(){
+		$("submit").click(function(){
+			console.log('Submit!');
+				$.post("/runs",
+				{
+					date: 2017-09-14,
+					distance: 3.4,
+					time: {
+						hours: 0,
+						minutes: 29,
+						seconds: 05
+					},
+					comments: "Great run!"
+				},
+				function(data, status){
+						console.log("Data: " + data + "\nStatus: " + status);
+				});
+		});
+});
+};
+*/
