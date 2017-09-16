@@ -6,11 +6,9 @@ const Schema = mongoose.Schema;
 const runSchema = new Schema({
   date: { type: Date, required: true },
   distance: { type: Number, required: true },
-  time: {
-    hours: { type: Number },
-    minutes: { type: Number },
-    seconds: { type: Number }
-  },
+  hours: { type: Number },
+  minutes: { type: Number },
+  seconds: { type: Number },
   comments: { type: String }
 });
 

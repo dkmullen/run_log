@@ -13,7 +13,8 @@ module.exports = {
     const newRun = req.body; // const = entire request body sent in
     console.log(newRun);
     Run.create(newRun) // create a new run record out of the const
-      .then(run => res.send(run))
+      .then(run => res.json(run))
+      .then(console.log('done'))
       .catch(next);
   }
 };

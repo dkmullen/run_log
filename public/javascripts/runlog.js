@@ -1,3 +1,4 @@
+
 var date = ko.observable();
 var miles = ko.observable();
 var hours = ko.observable();
@@ -74,12 +75,11 @@ function ViewModel() {
 		this.logMyRun();
 	};
 
-
 	/**
-   * This is the 'fake' post. Needs a post method to become real.
 	 * Calculates the pace of the run and 'logs' it by adding data to the DOM.
 	 * Calls formReset to clear the form and toggles the observable showTable
-	 * to 'true' to display the previously hidden data div.
+	 * to 'true' to display the previously hidden data div. Also posts the data
+	 * to the MongoDB.
 	 * @function
      */
 
@@ -98,6 +98,7 @@ function ViewModel() {
 			paceSeconds = '00';
 		}
 
+		/* Make the modal */
 		document.getElementById('date').innerHTML = date();
 		document.getElementById('miles').innerHTML = miles();
 		document.getElementById('time').innerHTML = hours() + ':' +
@@ -106,27 +107,30 @@ function ViewModel() {
 			paceSeconds;
 		document.getElementById('comments').innerHTML = comments();
 
-		console.log(miles());
-			$.post("/runs",
-			{
-				date: date(),
-				distance: miles(),
-				time: {
-					hours: hours(),
-					minutes: minutes(),
-					seconds: seconds()
-				},
-				comments: comments()
-			},
-			function(data, status){
-					console.log("Data: " + data + "\nStatus: " + status);
-			});
-
-			this.formReset();
-			showTable(true);
-			setTimeout(function() { showTable(false); }, 5000);
-
+		/* Create the object for posting */
+		var myAwesomeRun = {
+			date: date(),
+			distance: miles(),
+			hours: hours(),
+			minutes: minutes(),
+			seconds: seconds(),
+			comments: comments()
 		};
+
+		$.ajax({
+			type: "POST",
+			url: "/runs",
+			dataType: 'JSON',
+			data: myAwesomeRun,
+			success: function(myAwesomeRun, status){
+				console.log("Data: " + myAwesomeRun + "\nStatus: " + status);
+			}
+		})
+
+		this.formReset();
+		showTable(true);
+		setTimeout(function() { showTable(false); }, 5000);
+	};
 
 	/**
 	 * Empties the form; Called when Submit button is hit
