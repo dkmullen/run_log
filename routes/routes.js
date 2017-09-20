@@ -4,4 +4,5 @@ const RunController = require('../controllers/run_controller');
 // Receive app as the argument from app.js
 module.exports = (app) => {
   app.post('/runs', RunController.createrun);
+  app.get('/runs', RunController.getall);
 };

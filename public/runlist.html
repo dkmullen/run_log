@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="stylesheets/style.css">
+	<link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+    $.get('/runs', function( data ) {
+      console.log(data);
+      $("body")
+        .append(data.distance);
+    }, "json");
+  </script>
+
+	<title>Run List</title>
+</head>
+
+<body>
+	<div id="wrapper">
+		<div id="title-area">
+			<h1>Run Log</h1>
+			<p id="home" class="small-text"><a href="index.html">Home</a></p>
+		</div>
+
+    <p>
+      Hello there.
+    </p>
+
+
+	</div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js"></script>
+  <script src="javascripts/runlog.js"></script>
+
+
+
+  </body>
+</html>

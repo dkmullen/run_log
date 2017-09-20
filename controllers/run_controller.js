@@ -16,5 +16,11 @@ module.exports = {
       .then(run => res.json(run))
       .then(console.log('done'))
       .catch(next);
+  },
+
+  getall(req, res, next) {
+    Run.find({})
+      .then(runs => res.send(runs))
+      .catch(data => res.send(data));
   }
 };
