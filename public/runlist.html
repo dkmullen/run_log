@@ -7,13 +7,6 @@
 	<link rel="stylesheet" href="stylesheets/style.css">
 	<link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script>
-    $.get('/runs', function( data ) {
-      console.log(data);
-      $("body")
-        .append(data.distance);
-    }, "json");
-  </script>
 
 	<title>Run List</title>
 </head>
@@ -25,10 +18,13 @@
 			<p id="home" class="small-text"><a href="index.html">Home</a></p>
 		</div>
 
-    <p>
-      Hello there.
-    </p>
+    <div id="click" data-bind="click: logData()">
+      Click
+    </div>
 
+    <p id="here"></p>
+
+    </div>
 
 	</div>
 

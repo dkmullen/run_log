@@ -153,5 +153,24 @@ function ViewModel() {
 	this.closeTable = function() {
 		showTable(false);
 	};
+
+	this.logData = function() {
+		$.get('/runs', function( data ) {
+			for (i = 0; i < data.length; i++) {
+				var str =
+					'Date: ' + data[i].date + ' ' +
+					'Distance: ' + data[i].distance + ' ' + 'miles ' +
+					'Time: ' + data[i].hours + ':' + data[i].minutes + ':' + data[i].seconds + ' ' +
+					'Comments: ' + data[i].comments
+				;
+				console.log(str);
+				document.getElementById('here').innerHTML=str;
+
+			}
+		}, "json");
+	};
+
+
+
 }
 ko.applyBindings(new ViewModel());
