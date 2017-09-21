@@ -114,6 +114,8 @@ function ViewModel() {
 			hours: hours(),
 			minutes: minutes(),
 			seconds: seconds(),
+			paceMinutes: paceMinutes,
+			paceSeconds: paceSeconds,
 			comments: comments()
 		};
 
@@ -161,11 +163,10 @@ function ViewModel() {
 					'Date: ' + data[i].date + ' ' +
 					'Distance: ' + data[i].distance + ' ' + 'miles ' +
 					'Time: ' + data[i].hours + ':' + data[i].minutes + ':' + data[i].seconds + ' ' +
+					'Pace: ' + data[i].paceMinutes + ':' + data[i].paceSeconds + ' ' +
 					'Comments: ' + data[i].comments
 				;
 				console.log(str);
-				document.getElementById('here').innerHTML=str;
-
 			}
 		}, "json");
 	};

@@ -9,6 +9,8 @@ const runSchema = new Schema({
   hours: { type: Number },
   minutes: { type: Number },
   seconds: { type: Number },
+  paceMinutes: { type: Number },
+  paceSeconds: { type: Number },
   comments: { type: String }
 });
 

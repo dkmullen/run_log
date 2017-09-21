@@ -134,11 +134,22 @@ button, #submit {
 #time-units, #miles {
 	width: 60px;
 }
-table, th, td{
-	border: 1px solid rgb(33, 88, 148);
-	font-size: 85%;
+table {
+	/* border: 1px solid rgb(33, 88, 148);
+	font-size: 85%; */
 	margin: 0 auto;
+	border-collapse: collapse;
+	width: 80%;
 }
+td, th {
+	border: 1px solid #dddddd;
+	text-align: left;
+	padding: 8px;
+}
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
 #table-wrapper {
 	position: absolute;
 	top: 50%;
@@ -157,6 +168,9 @@ strong {
 	font-size: 70%;
 	margin: 10px 0 15px 0;
 }
+
+
+
 @media only screen and (min-height: 500px) {
 	#form-wrapper {
 		margin-top: 20px;
