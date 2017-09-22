@@ -1,6 +1,7 @@
 /*jshint esversion: 6 */
 
-const uri = 'mongodb://localhost:27017/runlog';
+const uri = 'mongodb://dkmullen:rl456%@ds147304.mlab.com:47304/runlog';
+const uri2 = 'mongodb://localhost:27017/runlog';
 
 module.exports = {
     //'secret': 'fakesecret',
