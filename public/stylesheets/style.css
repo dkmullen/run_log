@@ -131,6 +131,13 @@ button, #submit {
     margin: 4px 2px;
 	cursor: pointer;
 }
+#navlink {
+	margin-top: 10px;
+}
+#navlink a {
+		text-decoration: none;
+		color: rgb(172, 53, 63);
+}
 #time-units, #miles {
 	width: 60px;
 }
@@ -164,7 +171,7 @@ strong {
 	font-weight: 700;
 	color: rgb(172, 53, 63);
 }
-#disclaimer {
+#logged-message {
 	font-size: 70%;
 	margin: 10px 0 15px 0;
 }

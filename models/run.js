@@ -3,14 +3,15 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+// Changed these to strings to get leading zeros to show up in db
 const runSchema = new Schema({
-  date: { type: Date, required: true },
+  date: { type: String, required: true },
   distance: { type: Number, required: true },
   hours: { type: Number },
-  minutes: { type: Number },
-  seconds: { type: Number },
-  paceMinutes: { type: Number },
-  paceSeconds: { type: Number },
+  minutes: { type: String },
+  seconds: { type: String },
+  paceMinutes: { type: String },
+  paceSeconds: { type: String },
   comments: { type: String }
 });
 

@@ -7,7 +7,6 @@
 	<link rel="stylesheet" href="stylesheets/style.css">
 	<link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
 	<title>Run Log</title>
 </head>
 
@@ -15,7 +14,7 @@
 	<div id="wrapper">
 		<div id="title-area">
 			<h1>Run Log</h1>
-			<p id="home" class="small-text"><a href="runlist.html">dkmullen.com</a></p>
+			<p id="home" class="small-text"><a href="http://dkmullen.com">dkmullen.com</a></p>
 		</div> <!-- data-bind="submit: checkEntry" -->
 		<form id="run-log-form" data-bind="submit: checkEntry" >
 			<div id="form-wrapper">
@@ -26,7 +25,7 @@
 				<p>Elasped Time:<span class="required">*</span></p>
 					<input id="time-units" type="number" name="hours" min="0" placeholder="hr"
 						data-bind="value: hours"> :
-          <input id="time-units" type="number" name="minutes" min="0" max="59" placeholder="min"
+          <input id="time-units" type="number" name="minutes" min="0" max="59" placeholder="min*"
             data-bind="value: minutes"> :
           <input id="time-units" type="number" name="seconds" min="0" max="59" placeholder="sec"
             data-bind="value: seconds"><br>
@@ -38,27 +37,26 @@
           Enter at least Miles and Minutes.</p>
 				<div id="button-wrapper">
 					<button type="button" data-bind="click: formReset" >Reset</button>
-					<input  id="submit" type="submit" value="Submit" >
+					<input id="submit" type="submit" value="Submit" >
 				</div>
+        <p id="navlink"><a href="runlist.html">See the logged runs</a></p>
 			</div>
 		</form>
 
-    <!-- This is the temporary 'modal' to take the place of a true db conncetion -->
+    <!-- Modal - appears for five seconds -->
 		<div id="table-wrapper" data-bind="visible: showTable">
 			<p><strong>Date:</strong> <span id="date"></span></p>
 			<p><strong>Miles:</strong> <span id="miles"></span></p>
 			<p><strong>Time:</strong> <span id="time"></span></p>
 			<p><strong>Pace:</strong> <span id="pace"></span></p>
 			<p><strong>Comments:</strong> <span id="comments"></span></p>
-			<p id="disclaimer">Your run is logged.</p>
+			<p id="logged-message">Your run is logged.</p>
 			<button type="button" id="close" data-bind="click: closeTable" >Close</button>
 		</div>
 	</div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js"></script>
   <script src="javascripts/runlog.js"></script>
-
-
 
   </body>
 </html>

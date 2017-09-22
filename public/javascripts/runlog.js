@@ -166,7 +166,14 @@ function ViewModel() {
 					'Pace: ' + data[i].paceMinutes + ':' + data[i].paceSeconds + ' ' +
 					'Comments: ' + data[i].comments
 				;
+				var str2 =
+					'<tr><td>' + data[i].date + '</td>' +
+					'<td>' + data[i].distance + '</td>' +
+					'<td>' + data[i].hours + ':' + data[i].minutes + ':' + data[i].seconds + '</td>' +
+					'<td>' + data[i].paceMinutes + ':' + data[i].paceSeconds + '</td></tr>'
+				;
 				console.log(str);
+				$('#runs > tbody:last-child').append(str2);
 			}
 		}, "json");
 	};

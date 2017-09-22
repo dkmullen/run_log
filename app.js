@@ -14,7 +14,7 @@ var run = require('./models/run'); //dkm---------->
 
 var app = express();
 
-mongoose.connect(config.mongoUrl); //dkm---------->
+mongoose.connect(config.mongoUrl, { useMongoClient: true }); //dkm---------->
 mongoose.Promise = global.Promise; //dkm---------->
 app.set('secret', config.secret); //dkm---------->
 
