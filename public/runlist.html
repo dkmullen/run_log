@@ -15,12 +15,10 @@
 	<div id="wrapper">
 		<div id="title-area">
 			<h1>Run Log</h1>
-			<p id="home" class="small-text"><a href="index.html">Home</a></p>
+			<p id="home" class="small-text"><a href="http://dkmullen.com">dkmullen.com</a></p>
 		</div>
 
-    <div id="click" data-bind="click: logData()"></div>
-
-    <table id="runs">
+    <table id="runs" data-bind="event: { onload: logData() }">
       <tr>
         <th>Date</th>
         <th>Miles</th>
@@ -29,6 +27,9 @@
       </tr>
       <!-- jquery appends data here -->
     </table>
+
+    <!-- If req to db fails, JS inserts a message here -->
+    <div id="fail-msg"></div>
 
     <p id="navlink"><a href="index.html">Return to the form</a></p>
 	</div>

@@ -6,7 +6,7 @@ var minutes = ko.observable();
 var seconds = ko.observable();
 var comments = ko.observable();
 var errorMessage = ko.observable(false);
-var showTable = ko.observable(false);
+var showModal = ko.observable(false);
 
 function ViewModel() {
 
@@ -77,7 +77,7 @@ function ViewModel() {
 
 	/**
 	 * Calculates the pace of the run and 'logs' it by adding data to the DOM.
-	 * Calls formReset to clear the form and toggles the observable showTable
+	 * Calls formReset to clear the form and toggles the observable showModal
 	 * to 'true' to display the previously hidden data div. Also posts the data
 	 * to the MongoDB.
 	 * @function
@@ -99,13 +99,15 @@ function ViewModel() {
 		}
 
 		/* Make the modal */
-		document.getElementById('date').innerHTML = date();
-		document.getElementById('miles').innerHTML = miles();
-		document.getElementById('time').innerHTML = hours() + ':' +
-			minutes() + ':' + seconds();
-		document.getElementById('pace').innerHTML = paceMinutes + ':' +
-			paceSeconds;
-		document.getElementById('comments').innerHTML = comments();
+
+			document.getElementById('date').innerHTML = date();
+			document.getElementById('miles').innerHTML = miles();
+			document.getElementById('time').innerHTML = hours() + ':' +
+				minutes() + ':' + seconds();
+			document.getElementById('pace').innerHTML = paceMinutes + ':' +
+				paceSeconds;
+			document.getElementById('comments').innerHTML = comments();
+
 
 		/* Create the object for posting */
 		var myAwesomeRun = {
@@ -119,19 +121,22 @@ function ViewModel() {
 			comments: comments()
 		};
 
+// need to finish error handling of post function to alert user of failure
 		$.ajax({
 			type: "POST",
 			url: "/runs",
 			dataType: 'JSON',
-			data: myAwesomeRun,
-			success: function(myAwesomeRun, status){
+			data: myAwesomeRun})
+			.done(function(myAwesomeRun, status){
 				console.log("Data: " + myAwesomeRun + "\nStatus: " + status);
-			}
-		})
+			})
+			.fail(function() {
+				console.log('Didnt work!');
+			})
 
 		this.formReset();
-		showTable(true);
-		setTimeout(function() { showTable(false); }, 5000);
+		showModal(true);
+		setTimeout(function() { showModal(false); }, 5000);
 	};
 
 	/**
@@ -152,33 +157,38 @@ function ViewModel() {
 	 * Closes the results div when Close button is hit.
 	 * @function
 	 */
-	this.closeTable = function() {
-		showTable(false);
+	this.closeModal = function() {
+		showModal(false);
 	};
 
 	this.logData = function() {
 		$.get('/runs', function( data ) {
 			for (i = 0; i < data.length; i++) {
 				var str =
-					'Date: ' + data[i].date + ' ' +
-					'Distance: ' + data[i].distance + ' ' + 'miles ' +
-					'Time: ' + data[i].hours + ':' + data[i].minutes + ':' + data[i].seconds + ' ' +
-					'Pace: ' + data[i].paceMinutes + ':' + data[i].paceSeconds + ' ' +
-					'Comments: ' + data[i].comments
-				;
-				var str2 =
 					'<tr><td>' + data[i].date + '</td>' +
 					'<td>' + data[i].distance + '</td>' +
 					'<td>' + data[i].hours + ':' + data[i].minutes + ':' + data[i].seconds + '</td>' +
 					'<td>' + data[i].paceMinutes + ':' + data[i].paceSeconds + '</td></tr>'
 				;
-				console.log(str);
-				$('#runs > tbody:last-child').append(str2);
+				$('#runs > tbody:last-child').append(str);
 			}
-		}, "json");
-	};
-
-
-
+		})
+		.done(function() {
+			console.log('Success!')
+			})
+		.fail(function() {
+			for (i = 0; i < 10; i++) {
+				var str =
+					'<tr><td>?????</td>' +
+					'<td>?????</td>' +
+					'<td>?????</td>' +
+					'<td>?????</td></tr>'
+				;
+				var errMsg = '<p id="oh-no">Oh no! The database must be unavailable!</p>';
+				$('#runs > tbody:last-child').append(str);
+			};
+			$('#fail-msg').append(errMsg);
+		});
+	}
 }
 ko.applyBindings(new ViewModel());

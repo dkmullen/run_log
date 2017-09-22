@@ -142,8 +142,6 @@ button, #submit {
 	width: 60px;
 }
 table {
-	/* border: 1px solid rgb(33, 88, 148);
-	font-size: 85%; */
 	margin: 0 auto;
 	border-collapse: collapse;
 	width: 80%;
@@ -157,7 +155,7 @@ tr:nth-child(even) {
     background-color: #dddddd;
 }
 
-#table-wrapper {
+#modal-wrapper {
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -175,8 +173,9 @@ strong {
 	font-size: 70%;
 	margin: 10px 0 15px 0;
 }
-
-
+#oh-no {
+	margin-top: 15px;
+}
 
 @media only screen and (min-height: 500px) {
 	#form-wrapper {
