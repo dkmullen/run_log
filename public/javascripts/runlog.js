@@ -1,4 +1,3 @@
-
 var date = ko.observable();
 var miles = ko.observable();
 var hours = ko.observable();
@@ -11,46 +10,44 @@ var showModal = ko.observable(false);
 function ViewModel() {
 
 	/**
-	 * Helper function to produce two digit numbers (credit at bottom of file)
-	 * If number < 10, adds a '0' to the front, otherwise adds empty string.
-	 * pad2 comes from fanaur at http://stackoverflow.com/questions/8043026/javascript-format-number-to-have-2-digit
-	 * Longform: if (number < 10) {return '0' + number;} else {return '' + number;}
-	 * @function
-	 * @param {number} num - Passed in from other functions
-	 * @returns a two-digit number
-	 */
+	* Helper function to produce two digit numbers (credit at bottom of file)
+	* If number < 10, adds a '0' to the front, otherwise adds empty string.
+	* pad2 comes from fanaur at http://stackoverflow.com/questions/8043026/javascript-format-number-to-have-2-digit
+	* Longform: if (number < 10) {return '0' + number;} else {return '' + number;}
+	* @function
+	* @param {number} num - Passed in from other functions
+	* @returns a two-digit number
+	*/
 	this.pad2 = function(number) {
 		return (number < 10 ? '0' : '') + number;
 	};
 
 	/**
-	 * Function called directly by 'Submit' button. Checks to see if needed
-	 * fields are filled out. If not, flips the errorMessage observable to
-	 * true. Otherwise called the next function of the app, fillInData.
-	 * @function
-	 */
+	* Function called directly by 'Submit' button. Checks to see if needed
+	* fields are filled out. If not, flips the errorMessage observable to
+	* true. Otherwise called the next function of the app, fillInData.
+	* @function
+	*/
 	this.checkEntry = function() {
 		if (miles() === undefined) {
 			errorMessage(true);
-		}
-		else if (hours() === undefined && minutes() === undefined) {
+		}	else if (hours() === undefined && minutes() === undefined) {
 			errorMessage(true);
-		}
-		else {
+		} else {
 			this.fillInData();
 		}
 	};
 
 	/**
-	 * A function that fills in with zeros any optional fields left
-	 * blank, calls pad2 to add leading zeros to some single-digit fields,
-	 * then calls logMyRun;
-	 * @function
-	 */
+	* A function that fills in with zeros any optional fields left
+	* blank, calls pad2 to add leading zeros to some single-digit fields,
+	* then calls logMyRun;
+	* @function
+	*/
 	this.fillInData = function() {
 		/** Turns off error message in case it was on from a previous attempt.*/
 		errorMessage(false);
-		if (date() === undefined) {
+			if (date() === undefined) {
 			date('');
 		}
 		if (hours() !== undefined && minutes() === undefined) {
@@ -76,12 +73,12 @@ function ViewModel() {
 	};
 
 	/**
-	 * Calculates the pace of the run and 'logs' it by adding data to the DOM.
-	 * Calls formReset to clear the form and toggles the observable showModal
-	 * to 'true' to display the previously hidden data div. Also posts the data
-	 * to the MongoDB.
-	 * @function
-     */
+	* Calculates the pace of the run and 'logs' it by adding data to the DOM.
+	* Calls formReset to clear the form and toggles the observable showModal
+	* to 'true' to display the previously hidden data div. Also posts the data
+	* to the MongoDB.
+	* @function
+	*/
 
 	this.logMyRun = function() {
 		//parseInt because numbers from the form are delivered as strings
@@ -99,15 +96,13 @@ function ViewModel() {
 		}
 
 		/* Make the modal */
-
-			document.getElementById('date').innerHTML = date();
-			document.getElementById('miles').innerHTML = miles();
-			document.getElementById('time').innerHTML = hours() + ':' +
-				minutes() + ':' + seconds();
-			document.getElementById('pace').innerHTML = paceMinutes + ':' +
-				paceSeconds;
-			document.getElementById('comments').innerHTML = comments();
-
+		document.getElementById('date').innerHTML = date();
+		document.getElementById('miles').innerHTML = miles();
+		document.getElementById('time').innerHTML = hours() + ':' +
+			minutes() + ':' + seconds();
+		document.getElementById('pace').innerHTML = paceMinutes + ':' +
+			paceSeconds;
+		document.getElementById('comments').innerHTML = comments();
 
 		/* Create the object for posting */
 		var myAwesomeRun = {
@@ -121,7 +116,7 @@ function ViewModel() {
 			comments: comments()
 		};
 
-// need to finish error handling of post function to alert user of failure
+		// need to finish error handling of post function to alert user of failure
 		$.ajax({
 			type: "POST",
 			url: "/runs",
@@ -129,20 +124,21 @@ function ViewModel() {
 			data: myAwesomeRun})
 			.done(function(myAwesomeRun, status){
 				console.log("Data: " + myAwesomeRun + "\nStatus: " + status);
-			})
+				})
 			.fail(function() {
-				console.log('Didnt work!');
+			console.log('Didnt work!');
 			})
 
 		this.formReset();
 		showModal(true);
 		setTimeout(function() { showModal(false); }, 5000);
 	};
+	/** End of logMyRun function --------------------------------------- */
 
 	/**
-	 * Empties the form; Called when Submit button is hit
-	 * @function
-	 */
+	* Empties the form; Called when Submit button is hit
+	* @function
+	*/
 	this.formReset = function() {
 		miles(undefined);
 		hours(undefined);
@@ -154,9 +150,9 @@ function ViewModel() {
 	};
 
 	/**
-	 * Closes the results div when Close button is hit.
-	 * @function
-	 */
+	* Closes the results div when Close button is hit.
+	* @function
+	*/
 	this.closeModal = function() {
 		showModal(false);
 	};
@@ -164,31 +160,32 @@ function ViewModel() {
 	this.logData = function() {
 		$.get('/runs', function( data ) {
 			for (i = 0; i < data.length; i++) {
-				var str =
-					'<tr><td>' + data[i].date + '</td>' +
-					'<td>' + data[i].distance + '</td>' +
-					'<td>' + data[i].hours + ':' + data[i].minutes + ':' + data[i].seconds + '</td>' +
-					'<td>' + data[i].paceMinutes + ':' + data[i].paceSeconds + '</td></tr>'
-				;
-				$('#runs > tbody:last-child').append(str);
+			var str =
+				'<tr><td>' + data[i].date + '</td>' +
+				'<td>' + data[i].distance + '</td>' +
+				'<td>' + data[i].hours + ':' + data[i].minutes + ':' + data[i].seconds + '</td>' +
+				'<td>' + data[i].paceMinutes + ':' + data[i].paceSeconds + '</td></tr>'
+			;
+			$('#runs > tbody:last-child').append(str);
 			}
 		})
 		.done(function() {
 			console.log('Success!')
-			})
+		})
 		.fail(function() {
 			for (i = 0; i < 10; i++) {
-				var str =
-					'<tr><td>?????</td>' +
-					'<td>?????</td>' +
-					'<td>?????</td>' +
-					'<td>?????</td></tr>'
-				;
-				var errMsg = '<p id="oh-no">Oh no! The database must be unavailable!</p>';
+			var str =
+				'<tr><td>?????</td>' +
+				'<td>?????</td>' +
+				'<td>?????</td>' +
+				'<td>?????</td></tr>';
 				$('#runs > tbody:last-child').append(str);
 			};
+			var errMsg = '<p id="oh-no">Oh no! The database must be unavailable!</p>';
 			$('#fail-msg').append(errMsg);
+
 		});
-	}
+	};
+
 }
 ko.applyBindings(new ViewModel());

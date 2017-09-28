@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="stylesheets/style.css">
+	<link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<title>Run Log</title>
+</head>
+
+<body>
+	<div id="wrapper">
+
+		<div id="title-area">
+			<h1>Run Log</h1>
+			<p id="home" class="small-text"><a href="http://dkmullen.com">dkmullen.com</a></p>
+		</div>
+
+		<form id="run-log-form" data-bind="submit: createUser" >
+			<div id="form-wrapper">
+				<p>Name:<span class="required">*</span></p>
+				    <input type="text" name="name" data-bind="value: username">
+				<p>Email:<span class="required">*</span></p>
+				    <input id="email" type="email" name="email" data-bind="value: email">
+				<p>Password:<span class="required">*</span></p>
+				<input type="password" name="password" data-bind="value: password">
+        <p>Repeat Password:<span class="required">*</span></p>
+				<input type="password" name="password" data-bind="value: password">
+				<p id="directions"><span class="required">*</span> Required field</p>
+				<p id="error"
+          data-bind="style: { color: errorMessage() == true ? 'red' : 'rgb(242, 242, 242)' }">
+          Err.</p>
+				<div id="button-wrapper">
+					<button type="button" data-bind="click: formReset" >Reset</button>
+					<input id="submit" type="submit" value="Submit" >
+				</div>
+        <p id="navlink"><a href="runlist.html">See the logged runs</a></p>
+			</div>
+		</form>
+
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js"></script>
+  <script src="javascripts/createuser.js"></script>
+
+  </body>
+</html>
