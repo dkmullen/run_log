@@ -10,7 +10,10 @@ function ViewModel() {
 		console.log('Create new user code goes here');
 	};
 	this.formReset = function() {
-		console.log('Reset form code...');
+		username('');
+		email(undefined);
+		password(undefined);
+		errorMessage(false);
 	}
 }
 ko.applyBindings(new ViewModel());
