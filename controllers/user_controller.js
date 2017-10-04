@@ -4,7 +4,7 @@ const express = require('express'),
   app = express(),
   config = require('../config'),
   bcrypt = require('bcrypt-nodejs'),
-  Run = require('../models/user');
+  User = require('../models/user');
 
 module.exports = {
   createuser(req, res, next) {

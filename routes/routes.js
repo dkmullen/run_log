@@ -5,10 +5,11 @@ const RunController = require('../controllers/run_controller'),
 
 // Receive app as the argument from app.js
 module.exports = (app) => {
+  app.post('/users', UserController.createuser);
+  app.post('/auth', UserController.gettoken);
+  app.use('/', UserController.checktoken);
   app.post('/runs', RunController.createrun);
   app.get('/runs', RunController.getall);
 
-  app.post('/users', UserController.createuser);
-  app.post('/auth', UserController.gettoken);
-  //app.use('/', UserController.checktoken);
+
 };

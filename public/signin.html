@@ -18,15 +18,11 @@
 			<p id="home" class="small-text"><a href="http://dkmullen.com">dkmullen.com</a></p>
 		</div>
 
-		<form id="run-log-form" data-bind="submit: createUser" >
+		<form id="run-log-form" data-bind="submit: signInUser" >
 			<div id="form-wrapper">
-				<p>Name:<span class="required">*</span></p>
-				    <input type="text" name="name" data-bind="value: username">
 				<p>Email:<span class="required">*</span></p>
 				    <input id="email" type="email" name="email" data-bind="value: email">
 				<p>Password:<span class="required">*</span></p>
-				<input type="password" name="password" data-bind="value: password">
-        <p>Repeat Password:<span class="required">*</span></p>
 				<input type="password" name="password" data-bind="value: password">
 				<p id="directions"><span class="required">*</span> Required field</p>
 				<p id="error"
@@ -36,7 +32,7 @@
 					<button type="button" data-bind="click: formReset" >Reset</button>
 					<input id="submit" type="submit" value="Submit" >
 				</div>
-        <p id="navlink"><a href="signin.html">...or sign in</a></p>
+        <p id="navlink"><a href="signup.html">...or sign up</a></p>
 			</div>
 		</form>
 

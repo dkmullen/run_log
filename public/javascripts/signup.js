@@ -9,6 +9,9 @@ function ViewModel() {
 	this.createUser = function() {
 		console.log('Create new user code goes here');
 	};
+	this.signInUser = function() {
+		console.log('Sign in code goes here');
+	};
 	this.formReset = function() {
 		username('');
 		email(undefined);
