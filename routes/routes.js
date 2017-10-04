@@ -9,6 +9,6 @@ module.exports = (app) => {
   app.get('/runs', RunController.getall);
 
   app.post('/users', UserController.createuser);
-  app.post('/users', UserController.gettoken);
-  app.use('/', UserController.checktoken);
+  app.post('/auth', UserController.gettoken);
+  //app.use('/', UserController.checktoken);
 };
