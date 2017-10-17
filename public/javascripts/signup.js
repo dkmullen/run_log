@@ -3,12 +3,18 @@
 var username = ko.observable();
 var email = ko.observable();
 var password = ko.observable();
+var password2 = ko.observable();
 var errorMessage = ko.observable(false);
 
 function ViewModel() {
+	this.validateForm = function () {
+		if (password() === password2()) {
+			this.createUser();
+		} else {
+			console.log("pw 1 = " + password() + " and pw 2 = " + password2());
+		}
+	}
 	this.createUser = function() {
-		console.log('Create new user code goes here');
-
 		/* Create the object for posting */
 		var newUser = {
 			name: username(),
@@ -28,9 +34,11 @@ function ViewModel() {
 			console.log('Didnt work!');
 			})
 	};
+
 	this.signInUser = function() {
 		console.log('Sign in code goes here');
 	};
+
 	this.formReset = function() {
 		username('');
 		email(undefined);
