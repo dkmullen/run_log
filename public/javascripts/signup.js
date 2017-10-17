@@ -12,6 +12,7 @@ function ViewModel() {
 			this.createUser();
 		} else {
 			console.log("pw 1 = " + password() + " and pw 2 = " + password2());
+			errorMessage(true);
 		}
 	}
 	this.createUser = function() {
@@ -33,6 +34,7 @@ function ViewModel() {
 			.fail(function() {
 			console.log('Didnt work!');
 			})
+			this.formReset();
 	};
 
 	this.signInUser = function() {
@@ -43,6 +45,7 @@ function ViewModel() {
 		username('');
 		email(undefined);
 		password(undefined);
+		password2(undefined);
 		errorMessage(false);
 	}
 }
