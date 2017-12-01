@@ -7,8 +7,6 @@ const express = require('express'),
 const config = require('../config'),
   User = require('../models/user');
 
-let app = express();
-
 module.exports = {
   // app.post('/users') to create a new user
   createuser(req, res) {
@@ -32,7 +30,9 @@ module.exports = {
 
   // app.post('/users/login') // to sign in when already registered
   login (req, res) {
+    console.log('starting');
     let body = _.pick(req.body, ['email', 'password']);
+    console.log(body);
 
     User.findByCredentials(body.email, body.password).then((user) => {
       user.generateAuthToken().then((token) => {

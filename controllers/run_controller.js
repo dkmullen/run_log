@@ -14,6 +14,7 @@ module.exports = {
       seconds: req.body.seconds,
       _creator: req.user._id
     });
+    console.log(run);
 
     run.save().then((doc) => {
       res.send(doc);

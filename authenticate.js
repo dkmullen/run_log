@@ -1,6 +1,6 @@
 /*jshint esversion: 6 */
 
-let {User} = require('./models/user');
+let User = require('./models/user');
 
 let authenticate = (req, res, next) => {
   let token = req.header('x-auth');

@@ -8,11 +8,9 @@ const RunController = require('../controllers/run_controller'),
 module.exports = (app) => {
   app.post('/users', UserController.createuser);
   app.get('/users/me', authenticate, UserController.getme);
-  app.post('users/login', authenticate, UserController.login);
+  app.post('/users/login', UserController.login);
   app.delete('/users/me/token', authenticate, UserController.logout);
   // app.use('/', UserController.checktoken);
   app.post('/runs', authenticate, RunController.createrun);
   app.get('/runs', authenticate, RunController.getall);
-
-
 };
