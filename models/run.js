@@ -1,7 +1,7 @@
 /*jshint esversion: 6 */
 
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+const mongoose = require('mongoose'),
+  Schema = mongoose.Schema;
 
 // Changed these to strings to get leading zeros to show up in db
 const runSchema = new Schema({
@@ -12,7 +12,9 @@ const runSchema = new Schema({
   seconds: { type: String },
   paceMinutes: { type: String },
   paceSeconds: { type: String },
-  comments: { type: String }
+  comments: { type: String },
+  // Next line ties runs to the user that created them
+  _creator: { type: mongoose.Schema.Types.ObjectId, required: true }
 });
 
 // Make the model, call it 'run', pass in the schema

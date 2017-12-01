@@ -8,7 +8,7 @@ module.exports = {
     jwtSession: {
       session: false
     },
-    'mongoUrl' : uri
+    'mongoUrl' : uri2
 };
 // To start mongo on Windows - "C:\Program Files\MongoDB\Server\3.4\bin\mongod.exe"
 

@@ -11,7 +11,7 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 var routes = require('./routes/routes'); //dkm---------->
 var run = require('./models/run'); //dkm---------->
-var auth = require('./auth.js')(); //dkm---------->
+//var auth = require('./auth.js')(); //dkm---------->
 
 var app = express();
 
@@ -30,7 +30,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(auth.initialize()); //dkm------------------>
+// app.use(auth.initialize()); //dkm------------------>
 
 app.use('/', index);
 app.use('/users', users);
@@ -38,9 +38,9 @@ app.use('/routes', routes); //dkm---------->
 
 routes(app);
 
-app.use('/', auth.authenticate(), function(req, res) {
-    res.json(users[req.user.id]); //dkm---------->
-});
+// app.use('/', auth.authenticate(), function(req, res) {
+//     res.json(users[req.user.id]); //dkm---------->
+// });
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
