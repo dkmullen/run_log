@@ -15,3 +15,9 @@ Clone the repository and run `npm install`, then `npm start` to run the app.
 ### Credits
 
 - Thanks to [fanaur at Stack Overflow](http://stackoverflow.com/questions/8043026/javascript-format-number-to-have-2-digit) for the function pad2
+
+### Status
+December 2, 2017
+- Routes are successfully authenticated on the back end and runs are correlated with users.
+- Can create a new user and log in from the front end forms
+- However, token is not yet passed to the front end, which blocks runs from being logged

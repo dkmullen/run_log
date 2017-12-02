@@ -12,6 +12,7 @@ module.exports = {
       hours: req.body.hours,
       minutes: req.body.minutes,
       seconds: req.body.seconds,
+      comments: req.body.comments,
       _creator: req.user._id
     });
     console.log(run);

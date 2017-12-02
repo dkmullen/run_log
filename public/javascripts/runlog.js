@@ -113,13 +113,17 @@ function ViewModel() {
 			seconds: seconds(),
 			paceMinutes: paceMinutes,
 			paceSeconds: paceSeconds,
-			comments: comments()
+			comments: comments(),
+			_creator: 'user id?'
 		};
 
 		// need to finish error handling of post function to alert user of failure
 		$.ajax({
 			type: "POST",
 			url: "/runs",
+			headers: {
+				'X-Auth-Token': token
+			},
 			dataType: 'JSON',
 			data: myAwesomeRun})
 			.done(function(myAwesomeRun, status){

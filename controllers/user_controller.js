@@ -14,9 +14,7 @@ module.exports = {
     let user = new User(userProperties);
 
     user.save().then(() => {
-      return user.generateAuthToken();
-    }).then((token) => {
-      res.header('x-auth', token).send(user);
+      res.send(user);
     })
     .catch((e) => {
       res.status(400).send(e);
@@ -37,6 +35,7 @@ module.exports = {
     User.findByCredentials(body.email, body.password).then((user) => {
       user.generateAuthToken().then((token) => {
         res.header('x-auth', token).send(user);
+        console.log(user);
       });
     }).catch((e) => {
       res.status(400).send();
