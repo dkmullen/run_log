@@ -29,6 +29,8 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+// The line below is what tells app to look in the dir called 'public' for
+// the files to serve - ie '/' = public/index.html, '/runs' = public/runs.html, etc.
 app.use(express.static(path.join(__dirname, 'public')));
 // app.use(auth.initialize()); //dkm------------------>
 
