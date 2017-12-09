@@ -167,64 +167,31 @@ function ViewModel() {
 	    headers: { 'x-auth': localStorage.getItem('token') },
 	    success: (results) => {
 				let data = results.runs;
-					for (i = 0; i < data.length; i++) {
-					var str =
-						'<tr><td>' + data[i].date + '</td>' +
-						'<td>' + data[i].distance + '</td>' +
-						'<td>' + data[i].hours + ':' + data[i].minutes + ':' + data[i].seconds + '</td>' +
-						'<td>' + data[i].paceminutes + ':' + data[i].paceseconds + '</td>' +
-						'<td>' + data[i].comments + '</td></tr>'
+				data.forEach((run) => {
+					let str =
+						'<tr><td>' + run.date + '</td>' +
+						'<td>' + run.distance + '</td>' +
+						'<td>' + run.hours + ':' + run.minutes + ':' + run.seconds + '</td>' +
+						'<td>' + run.paceminutes + ':' + run.paceseconds + '</td>' +
+						'<td>' + run.comments + '</td></tr>'
 					;
 					$('#runs > tbody:last-child').append(str);
-					}
-
-
-				console.log(results);
+				})
 			},
 	    error: (req, status, error) => { console.log(error); }
 	  });
-
-
-		// $.get('/runs', function( data ) {
-		// 	for (i = 0; i < data.length; i++) {
-		// 	var str =
-		// 		'<tr><td>' + data[i].date + '</td>' +
-		// 		'<td>' + data[i].distance + '</td>' +
-		// 		'<td>' + data[i].hours + ':' + data[i].minutes + ':' + data[i].seconds + '</td>' +
-		// 		'<td>' + data[i].paceMinutes + ':' + data[i].paceSeconds + '</td></tr>'
-		// 	;
-		// 	$('#runs > tbody:last-child').append(str);
-		// 	}
-		// })
-		// .done(function() {
-		// 	console.log('Success!')
-		// })
-		// .fail(function() {
-		// 	for (i = 0; i < 10; i++) {
-		// 	var str =
-		// 		'<tr><td>?????</td>' +
-		// 		'<td>?????</td>' +
-		// 		'<td>?????</td>' +
-		// 		'<td>?????</td></tr>';
-		// 		$('#runs > tbody:last-child').append(str);
-		// 	};
-		// 	var errMsg = '<p id="oh-no">Oh no! The database must be unavailable!</p>';
-		// 	$('#fail-msg').append(errMsg);
-
-		// });
+	};
+}
+	let logOut = () => {
+	  $.ajax({
+	    type: 'DELETE',
+	    url: '/users/me/token',
+	    headers: { 'x-auth': localStorage.getItem('token') },
+	    success: () => { localStorage.removeItem('token'); },
+	    error: (req, status, error) => {
+	    console.log(error);
+	    }
+	  });
 	};
 
-}
 ko.applyBindings(new ViewModel());
-
-let logOut = () => {
-  $.ajax({
-    type: 'DELETE',
-    url: '/users/me/token',
-    headers: { 'x-auth': localStorage.getItem('token') },
-    success: () => { localStorage.removeItem('token'); },
-    error: (req, status, error) => {
-    console.log(error);
-    }
-  });
-};

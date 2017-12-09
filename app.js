@@ -1,3 +1,5 @@
+/*jshint esversion: 6 */
+
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -20,8 +22,7 @@ mongoose.Promise = global.Promise; //dkm---------->
 app.set('secret', config.secret); //dkm---------->
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+// app.set('views', path.join(__dirname, 'views'));
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -32,10 +33,9 @@ app.use(cookieParser());
 // The line below is what tells app to look in the dir called 'public' for
 // the files to serve - ie '/' = public/index.html, '/runs' = public/runs.html, etc.
 app.use(express.static(path.join(__dirname, 'public')));
-// app.use(auth.initialize()); //dkm------------------>
 
-app.use('/', index);
-app.use('/users', users);
+// app.use('/', index);
+// app.use('/users', users);
 app.use('/routes', routes); //dkm---------->
 
 routes(app);
@@ -58,8 +58,8 @@ app.use(function(err, req, res, next) {
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
   // render the error page
-  res.status(err.status || 500);
-  res.render('error');
+  // res.status(err.status || 500);
+  // res.render('error');
 });
 
 module.exports = app;
