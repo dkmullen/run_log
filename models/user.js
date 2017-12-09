@@ -9,7 +9,7 @@ const mongoose = require('mongoose'),
 const UserSchema = new mongoose.Schema({
   name: { type: String },
   email: { type: String, required: true, minlength: 1, trim: true, unique: true,
-    validate: { validator: validator.isEmail, message: '{VALUE} is not a valid email'}},
+    validate: { isAsync: false, validator: validator.isEmail, message: '{VALUE} is not a valid email'}},
   password: { type: String, required: true, minlength: 5 },
   admin: { type: Boolean, default: false },
   tokens: [{

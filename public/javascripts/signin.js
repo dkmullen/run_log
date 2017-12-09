@@ -1,35 +1,36 @@
 /*jshint esversion: 6 */
 
-var email = ko.observable();
-var password = ko.observable();
-var errorMessage = ko.observable(false);
+let email = ko.observable(),
+	password = ko.observable(),
+	errorMessage = ko.observable(false);
 
 function ViewModel() {
-	this.signInUser = function() {
-		/* Create the object for posting */
-		var user = {
-			email: email(),
-			password: password(),
-		};
 
-		$.ajax({
-			type: "POST",
-			url: "/users/login",
-			dataType: 'JSON',
-			data: user})
-			.done(function(user, status){
-				console.log("Data: " + user() + "\nStatus: " + status);
-				})
-			.fail(function() {
-			console.log('Didnt work!');
-			})
-			this.formReset();
+	signInUser = function ()  {
+		let xhr = new XMLHttpRequest(),
+			user = { email: email(), password: password() };
+
+		xhr.onreadystatechange = () => {
+	    if (xhr.readyState==4 && xhr.status==200) {
+	      let response = xhr.responseText,
+	        token = xhr.getResponseHeader('x-auth');
+
+	      localStorage.setItem('token', token);
+	    }
+	    if(xhr.readyState==4 && xhr.status==403){
+	      console.log(message);
+	    }
+	  };
+	  xhr.open('POST', '/users/login', true);
+	  xhr.setRequestHeader('Content-type', 'application/json; charset=UTF-8');
+	  xhr.send(JSON.stringify(user));
+		formReset(); // really should load runs, not clear the form
 	};
 
-	this.formReset = function() {
+	formReset = function() {
 		email(undefined);
 		password(undefined);
 		errorMessage(false);
-	}
+	};
 }
 ko.applyBindings(new ViewModel());

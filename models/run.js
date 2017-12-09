@@ -10,8 +10,8 @@ const runSchema = new Schema({
   hours: { type: Number },
   minutes: { type: String },
   seconds: { type: String },
-  paceMinutes: { type: String },
-  paceSeconds: { type: String },
+  paceminutes: { type: String },
+  paceseconds: { type: String },
   comments: { type: String },
   // Next line ties runs to the user that created them
   _creator: { type: mongoose.Schema.Types.ObjectId, required: true }

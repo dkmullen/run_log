@@ -1,23 +1,24 @@
-// Wha
+/*jshint esversion: 6 */
 
-var username = ko.observable();
-var email = ko.observable();
-var password = ko.observable();
-var password2 = ko.observable();
-var errorMessage = ko.observable(false);
+let username = ko.observable(),
+	email = ko.observable(),
+	password = ko.observable(),
+	password2 = ko.observable(),
+	errorMessage = ko.observable(false);
 
 function ViewModel() {
-	this.validateForm = function () {
+
+	validateForm = function () {
 		if (password() === password2()) {
-			this.createUser();
+			createUser();
 		} else {
 			console.log("pw 1 = " + password() + " and pw 2 = " + password2());
-			errorMessage(true);
+		errorMessage(true);
 		}
 	}
-	this.createUser = function() {
-		/* Create the object for posting */
-		var newUser = {
+
+	createUser = function() {
+		let newUser = {
 			name: username(),
 			email: email(),
 			password: password(),
@@ -28,20 +29,16 @@ function ViewModel() {
 			url: "/users",
 			dataType: 'JSON',
 			data: newUser})
-			.done(function(newUser, status){
+			.done((newUser, status) => {
 				console.log("Data: " + newUser + "\nStatus: " + status);
-				})
-			.fail(function() {
-			console.log('Didnt work!');
 			})
-			this.formReset();
+			.fail(() => {
+				console.log('Didnt work!');
+			})
+		formReset(); // probably should redirect to sign in
 	};
 
-	this.signInUser = function() {
-		console.log('Sign in code goes here');
-	};
-
-	this.formReset = function() {
+	formReset = function() {
 		username('');
 		email(undefined);
 		password(undefined);
@@ -49,4 +46,5 @@ function ViewModel() {
 		errorMessage(false);
 	}
 }
+
 ko.applyBindings(new ViewModel());

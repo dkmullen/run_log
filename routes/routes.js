@@ -10,7 +10,6 @@ module.exports = (app) => {
   app.get('/users/me', authenticate, UserController.getme);
   app.post('/users/login', UserController.login);
   app.delete('/users/me/token', authenticate, UserController.logout);
-  // app.use('/', UserController.checktoken);
   app.post('/runs', authenticate, RunController.createrun);
   app.get('/runs', authenticate, RunController.getall);
 };
