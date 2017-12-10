@@ -15,6 +15,12 @@
 		<div id="title-area">
 			<h1>Run Log</h1>
 			<p id="home" class="small-text"><a href="http://dkmullen.com">dkmullen.com</a></p>
+      <ul id="navlist">
+        <li><a href="index.html">Log a run</a></li>
+        <li><a href="runlist.html">Run list</li></a>
+        <li data-bind="click: logOut">Log out</li>
+        <li><a href="signin.html">Log in</li></a>
+      </ul>
 		</div> <!-- data-bind="submit: checkEntry" -->
 		<form id="run-log-form" data-bind="submit: checkEntry" >
 			<div id="form-wrapper">
@@ -40,7 +46,7 @@
 					<input id="submit" type="submit" value="Submit" >
 				</div>
         <p id="navlink"><a href="runlist.html">See the logged runs</a></p>
-        <p id="navlink" data-bind="logOut">Log out</a></p>
+        <p id="navlink" data-bind="click: logOut">Log out</a></p>
         <p id="navlink"><a href="signin.html">Log in</a></p>
 			</div>
 		</form>

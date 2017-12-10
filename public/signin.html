@@ -16,6 +16,12 @@
 		<div id="title-area">
 			<h1>Run Log</h1>
 			<p id="home" class="small-text"><a href="http://dkmullen.com">dkmullen.com</a></p>
+      <ul id="navlist">
+        <li><a href="index.html">Log a run</a></li>
+        <li><a href="runlist.html">Run list</li></a>
+        <li onclick="logOut()">Log out</li>
+        <li><a href="signin.html">Log in</li></a>
+      </ul>
 		</div>
 
 		<form id="run-log-form" data-bind="submit: signInUser" >
@@ -37,6 +43,20 @@
 		</form>
 
   </div>
+
+  <script>
+  let logOut = () => {
+    $.ajax({
+      type: 'DELETE',
+      url: '/users/me/token',
+      headers: { 'x-auth': localStorage.getItem('token') },
+      success: () => { localStorage.removeItem('token'); },
+      error: (req, status, error) => {
+      console.log(error);
+      }
+    });
+  };
+  </script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js"></script>
   <script src="javascripts/signin.js"></script>

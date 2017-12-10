@@ -86,6 +86,10 @@ h1 {
 .small-text {
 	font-size: 85%;
 }
+#navlist li{
+	display: inline-block;
+	padding: 5px;
+}
 #home a {
 	color: rgb(255, 255, 255);
 	text-decoration: none;
