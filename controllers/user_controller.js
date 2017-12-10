@@ -35,7 +35,7 @@ module.exports = {
         res.header('x-auth', token).send(user);
       });
     }).catch((e) => {
-      res.status(400).send();
+      res.status(403).send();
     });
   },
 

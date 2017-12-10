@@ -214,16 +214,16 @@ strong {
 		font-size: 100%;
 	}
 	#form-wrapper {
-		margin-top: 20px;
+		margin-top: 10px;
 	}
 	input {
-		margin-bottom: 30px;
+		margin-bottom: 25px;
 	}
 	#directions, #error {
 		font-size: 16px;
 	}
 	#button-wrapper {
-		margin-top: 30px;
+		margin-top: 10px;
 	}
 }
 @media only screen and (min-height: 700px) {
@@ -234,7 +234,7 @@ strong {
 		font-size: 100%;
 	}
 	#form-wrapper {
-		margin-top: 50px;
+		margin-top: 30px;
 	}
 	input {
 		margin-bottom: 40px;
@@ -243,7 +243,7 @@ strong {
 		font-size: 16px;
 	}
 	#button-wrapper {
-		margin-top: 30px;
+		margin-top: 10px;
 	}
 }
 @media only screen and (min-height: 850px) {
