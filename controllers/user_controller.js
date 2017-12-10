@@ -28,14 +28,11 @@ module.exports = {
 
   // app.post('/users/login') // to sign in when already registered
   login (req, res) {
-    console.log('starting');
     let body = _.pick(req.body, ['email', 'password']);
-    console.log(body);
 
     User.findByCredentials(body.email, body.password).then((user) => {
       user.generateAuthToken().then((token) => {
         res.header('x-auth', token).send(user);
-        console.log(user);
       });
     }).catch((e) => {
       res.status(400).send();

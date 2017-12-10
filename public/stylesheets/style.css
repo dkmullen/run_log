@@ -128,6 +128,9 @@ textarea {
 	text-align: center;
 	border: 1px solid black;
 }
+.error {
+	font-size: 90%;
+}
 #directions, #error {
 	font-size: 14px;
 }
@@ -194,13 +197,13 @@ strong {
 
 @media only screen and (min-height: 500px) {
 	#form-wrapper {
-		margin-top: 20px;
+		margin-top: 10px;
 	}
 	input {
 		margin-bottom: 20px;
 	}
 	#button-wrapper {
-		margin-top: 50px;
+		margin-top: 20px;
 	}
 }
 @media only screen and (min-height: 600px) {
@@ -211,7 +214,7 @@ strong {
 		font-size: 100%;
 	}
 	#form-wrapper {
-		margin-top: 40px;
+		margin-top: 20px;
 	}
 	input {
 		margin-bottom: 30px;
@@ -220,7 +223,7 @@ strong {
 		font-size: 16px;
 	}
 	#button-wrapper {
-		margin-top: 70px;
+		margin-top: 30px;
 	}
 }
 @media only screen and (min-height: 700px) {
@@ -240,7 +243,7 @@ strong {
 		font-size: 16px;
 	}
 	#button-wrapper {
-		margin-top: 70px;
+		margin-top: 30px;
 	}
 }
 @media only screen and (min-height: 850px) {
@@ -264,7 +267,7 @@ strong {
 		font-size: 20px;
 	}
 	#button-wrapper {
-		margin-top: 75px;
+		margin-top: 35px;
 	}
 	button, #submit {
 		font-size: 20px;

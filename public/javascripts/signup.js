@@ -4,16 +4,22 @@ let username = ko.observable(),
 	email = ko.observable(),
 	password = ko.observable(),
 	password2 = ko.observable(),
-	errorMessage = ko.observable(false);
+	errorMessage = ko.observable(false),
+	errorMessage2 = ko.observable(false),
+	errorMessage3 = ko.observable(false);
 
 function ViewModel() {
 
 	validateForm = function () {
-		if (password() === password2()) {
-			createUser();
+		errorMessage(false); // reset on new attempt
+		errorMessage2(false);
+		errorMessage3(false);
+		if (password().length < 5 || password2().length < 5) {
+			errorMessage2(true);
+		} else if (password() !== password2()) {
+			errorMessage(true);
 		} else {
-			console.log("pw 1 = " + password() + " and pw 2 = " + password2());
-		errorMessage(true);
+			createUser();
 		}
 	}
 
@@ -31,11 +37,13 @@ function ViewModel() {
 			data: newUser})
 			.done((newUser, status) => {
 				console.log("Data: " + newUser + "\nStatus: " + status);
+				formReset(); // probably should redirect to sign in
 			})
-			.fail(() => {
-				console.log('Didnt work!');
+			.fail((err) => {
+				errorMessage3(true);
+				console.log(err);
 			})
-		formReset(); // probably should redirect to sign in
+
 	};
 
 	formReset = function() {
@@ -44,6 +52,8 @@ function ViewModel() {
 		password(undefined);
 		password2(undefined);
 		errorMessage(false);
+		errorMessage2(false);
+		errorMessage3(false);
 	}
 }
 
