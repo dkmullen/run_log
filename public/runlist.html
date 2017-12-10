@@ -16,13 +16,14 @@
 		<div id="title-area">
 			<h1>Run Log</h1>
 			<p id="home" class="small-text"><a href="http://dkmullen.com">dkmullen.com</a></p>
-      <ul id="navlist">
-        <li><a href="index.html">Log a run</a></li>
-        <li><a href="runlist.html">Run list</li></a>
-        <li data-bind="click: logOut">Log out</li>
-        <li><a href="signin.html">Log in</li></a>
-      </ul>
 		</div>
+
+    <ul id="navlist">
+      <li><a href="index.html">Log a run</a></li>
+      <li id="current">Run list</li></a>
+      <li data-bind="click: logOut" style="cursor:pointer">Log out</li>
+      <li><a href="signin.html">Log in</li></a>
+    </ul>
 
     <table id="runs" data-bind="event: { onload: logData() }">
       <tr>
