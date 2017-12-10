@@ -7,8 +7,8 @@ const RunController = require('../controllers/run_controller'),
 // Receive app as the argument from app.js
 module.exports = (app) => {
   app.post('/users', UserController.createuser);
-  app.get('/users/me', authenticate, UserController.getme);
   app.post('/users/login', UserController.login);
+  app.get('/users/me', authenticate, UserController.getme);
   app.delete('/users/me/token', authenticate, UserController.logout);
   app.post('/runs', authenticate, RunController.createrun);
   app.get('/runs', authenticate, RunController.getall);

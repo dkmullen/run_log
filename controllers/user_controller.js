@@ -23,7 +23,7 @@ module.exports = {
 
   // app.get('/users/me') to check my own id (ie, in Postman)
   getme(req, res) {
-    res.send(req.user);
+      res.send(req.user);
   },
 
   // app.post('/users/login') // to sign in when already registered

@@ -24,7 +24,9 @@ function ViewModel() {
 	  xhr.open('POST', '/users/login', true);
 	  xhr.setRequestHeader('Content-type', 'application/json; charset=UTF-8');
 	  xhr.send(JSON.stringify(user));
-		formReset(); // really should load runs, not clear the form
+
+		window.location.href = 'index.html';
+		// formReset(); // really should load runs, not clear the form
 	};
 
 	formReset = function() {
