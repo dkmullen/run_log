@@ -6,7 +6,6 @@ let express = require('express'),
  logger = require('morgan'),
  bodyParser = require('body-parser'),
  mongoose = require('mongoose'), //dkm-------->
- hbs = require('hbs'),
 
  config = require('./config'), //dkm-------->
  routes = require('./routes/routes'), //dkm---------->
@@ -14,7 +13,7 @@ let express = require('express'),
 
 let app = express();
 
-app.set('view engine', 'html');
+app.set('view engine', 'html'); // to use html extension on Handlebars templates
 app.engine('html', require('hbs').__express);
 
 mongoose.connect(config.mongoUrl, { useMongoClient: true }); //dkm---------->
@@ -29,7 +28,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // the files to serve - ie '/' = public/index.html, '/runs' = public/runs.html, etc.
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/routes', routes); //dkm---------->
-
 routes(app);
 
 // catch 404 and forward to error handler

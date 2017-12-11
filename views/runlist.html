@@ -24,7 +24,7 @@
       <li onclick="logOut()" style="cursor:pointer">Log out</li>
     </ul>
 
-    <table id="runs" data-bind="event: { onload: logData() }">
+    <table id="runs" data-bind="event: { onload: listRuns() }">
       <tr>
         <th>Date</th>
         <th>Miles</th>
@@ -38,11 +38,11 @@
     <!-- If req to db fails, JS inserts a message here -->
     <div id="fail-msg"></div>
 
-    <p id="navlink"><a href="index.html">Return to the form</a></p>
+    <p id="navlink"><a href="/">Return to the form</a></p>
 	</div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js"></script>
-  <script src="javascripts/runlog.js"></script>
+  <script src="javascripts/runlist.js"></script>
   <script src="javascripts/logout.js"></script>
 
   </body>
