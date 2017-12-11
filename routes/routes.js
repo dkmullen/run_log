@@ -14,6 +14,18 @@ module.exports = (app) => {
   app.get('/runs', authenticate, RunController.getall);
 
   app.get('/', (req, res) => {
-    res.render('runlog.hbs');
+    res.render('runlog.html');
+  });
+
+  app.get('/signin', (req, res) => {
+    res.render('signin.html');
+  });
+
+  app.get('/signup', (req, res) => {
+    res.render('signup.html');
+  });
+
+  app.get('/runlist', (req, res) => {
+    res.render('runlist.html');
   });
 };

@@ -37,7 +37,7 @@ function ViewModel() {
 			data: newUser})
 			.done((newUser, status) => {
 				console.log("Data: " + newUser + "\nStatus: " + status);
-				window.location.href = 'signin.html';
+				window.location.href = '/signin';
 			})
 			.fail((err) => {
 				errorMessage3(true);

@@ -10,5 +10,5 @@ let logOut = () => {
       console.log(error);
     }
   });
-  window.location.href = 'signin.html';
+  window.location.href = '/signin';
 };

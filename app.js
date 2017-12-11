@@ -13,7 +13,9 @@ let express = require('express'),
  run = require('./models/run'); //dkm---------->
 
 let app = express();
-app.set('view engine', 'hbs');
+
+app.set('view engine', 'html');
+app.engine('html', require('hbs').__express);
 
 mongoose.connect(config.mongoUrl, { useMongoClient: true }); //dkm---------->
 mongoose.Promise = global.Promise; //dkm---------->

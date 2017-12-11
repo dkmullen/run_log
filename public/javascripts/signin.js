@@ -27,7 +27,7 @@ function ViewModel() {
 	        token = xhr.getResponseHeader('x-auth');
 
 	      localStorage.setItem('token', token);
-				window.location.href = 'runlog.html';
+				window.location.href = '/';
 	    }
 	    if(xhr.readyState==4 && xhr.status==403){
 	      errorMessage(true);

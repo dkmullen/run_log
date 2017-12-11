@@ -14,12 +14,12 @@
 	<div id="wrapper">
 		<div id="title-area">
 			<h1>Run Log</h1>
-			<p id="home" class="small-text"><a href="http://dkmullen.com">dkmullen.com</a></p>
+			<p id="home" class="small-text"><a href="http://dkmullen.com">dkmullen.com</a> - hbs</p>
 		</div>
 
     <ul id="navlist">
       <li id="current">Log a run</li>
-      <li><a href="runlist.html">Run list</a></li>
+      <li><a href="runlist">Run list</a></li>
       <li onclick="logOut()" style="cursor:pointer">Log out</li>
     </ul>
 
@@ -40,7 +40,7 @@
 				<textarea cols="30" data-bind="value: comments"></textarea><br>
 				<p id="directions"><span class="required">*</span> Required field</p>
 				<p id="error"
-          data-bind="style: { color: errorMessage() == true ? 'red' : 'rgb(242, 242, 242)' }">
+          data-bind="style: { color: errorMessage() == true ? 'rgb(172, 53, 63)' : 'rgb(242, 242, 242)' }">
           Enter at least Miles and Minutes.</p>
 				<div id="button-wrapper">
 					<button type="button" data-bind="click: formReset" >Reset</button>
