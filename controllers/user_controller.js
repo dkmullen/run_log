@@ -45,5 +45,9 @@ module.exports = {
     }, () => {
       res.status(400).send();
     });
+  },
+
+  checktoken (req, res) {
+    console.log(req);
   }
 };

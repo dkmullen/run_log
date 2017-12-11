@@ -37,7 +37,7 @@ function ViewModel() {
 			data: newUser})
 			.done((newUser, status) => {
 				console.log("Data: " + newUser + "\nStatus: " + status);
-				formReset(); // probably should redirect to sign in
+				window.location.href = 'signin.html';
 			})
 			.fail((err) => {
 				errorMessage3(true);

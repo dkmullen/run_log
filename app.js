@@ -6,12 +6,14 @@ let express = require('express'),
  logger = require('morgan'),
  bodyParser = require('body-parser'),
  mongoose = require('mongoose'), //dkm-------->
+ hbs = require('hbs'),
 
  config = require('./config'), //dkm-------->
  routes = require('./routes/routes'), //dkm---------->
  run = require('./models/run'); //dkm---------->
 
 let app = express();
+app.set('view engine', 'hbs');
 
 mongoose.connect(config.mongoUrl, { useMongoClient: true }); //dkm---------->
 mongoose.Promise = global.Promise; //dkm---------->
