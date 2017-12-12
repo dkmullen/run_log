@@ -6,6 +6,7 @@ let express = require('express'),
  logger = require('morgan'),
  bodyParser = require('body-parser'),
  mongoose = require('mongoose'), //dkm-------->
+ hbs = require('hbs'),
 
  config = require('./config'), //dkm-------->
  routes = require('./routes/routes'), //dkm---------->
@@ -15,6 +16,7 @@ let app = express();
 
 app.set('view engine', 'html'); // to use html extension on Handlebars templates
 app.engine('html', require('hbs').__express);
+hbs.registerPartials(__dirname + '/views/partials');
 
 mongoose.connect(config.mongoUrl, { useMongoClient: true }); //dkm---------->
 mongoose.Promise = global.Promise; //dkm---------->

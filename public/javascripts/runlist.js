@@ -19,7 +19,9 @@ function ViewModel() {
           $('#runs > tbody:last-child').append(str);
         });
       },
-      error: (req, status, error) => { console.log(error); }
+      error: (req, status, error) => {
+        window.location.href = '/signin';
+      }
     });
   };
 }
