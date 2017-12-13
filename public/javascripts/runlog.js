@@ -11,6 +11,20 @@ let date = ko.observable(),
 
 function ViewModel() {
 
+	getName = function() {
+		$.ajax({
+			type: 'GET',
+			url: 'users/me',
+			headers: { 'x-auth': localStorage.getItem('token') },
+			success: (results) => {
+				$('#greeting').append(`Welcome ${results.name}.`);
+			},
+			error: (req, status, error) => {
+				window.location.href = '/signin';
+			}
+		});
+	};
+
 	/**
 	* Helper function to produce two digit numbers (credit at bottom of file)
 	* If number < 10, adds a '0' to the front, otherwise adds empty string.

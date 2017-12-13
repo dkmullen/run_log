@@ -112,6 +112,9 @@ h1 {
 #form-wrapper {
 	font-size: 110%;
 }
+#invite {
+	padding: 20px 50px 0 50px;
+}
 form {
 	padding: 15px 0 10px 0;
 }

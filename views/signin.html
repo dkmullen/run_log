@@ -15,15 +15,15 @@
 
 		<div id="title-area">
 			<h1>Run Log</h1>
-			<p id="home" class="small-text"><a href="http://dkmullen.com">dkmullen.com</a> - hbs</p>
+			<p id="home" class="small-text"><a href="http://dkmullen.com">dkmullen.com</a></p>
 		</div>
 
 		<form id="run-log-form" data-bind="submit: validateForm" >
 			<div id="form-wrapper">
 				<p>Email:<span class="required">*</span></p>
-				    <input id="email" type="email" name="email" data-bind="value: email" required="true">
+				    <input id="email" type="email" name="email" data-bind="value: email" required="true" placeholder="me@me.me">
 				<p>Password:<span class="required">*</span></p>
-				<input type="password" name="password" data-bind="value: password" required="true">
+				<input type="password" name="password" data-bind="value: password" required="true" placeholder="mmmmm">
 				<p id="directions"><span class="required">*</span> Required field</p>
 				<p id="error"
           data-bind="style: { color: errorMessage() == true ? 'rgb(172, 53, 63)' : 'rgb(242, 242, 242)' }">
@@ -36,6 +36,7 @@
 					<input id="submit" type="submit" value="Submit" >
 				</div>
         <p id="navlink"><a href="/signup">...or sign up</a></p>
+        <p id="invite">Try the app out with the default credentials, or sign up as a new user with any credentials you like (real or fake). Feel free to log runs.</p>
 			</div>
 		</form>
 
