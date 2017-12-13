@@ -35,7 +35,7 @@ UserSchema.methods.toJSON = function () {
 UserSchema.methods.generateAuthToken = function () {
   let user = this,
     access = 'auth',
-    token = jwt.sign({_id: user._id.toHexString(), access}, 'fakesecret').toString();
+    token = jwt.sign({_id: user._id.toHexString(), access}, process.env.JWT_SECRET).toString();
 
   user.tokens.push({access, token});
 
@@ -61,7 +61,7 @@ UserSchema.statics.findByToken = function (token) {
     decoded;
 
   try {
-    decoded = jwt.verify(token, 'fakesecret');
+    decoded = jwt.verify(token, process.env.JWT_SECRET);
   } catch (e) {
     return Promise.reject();
   }
