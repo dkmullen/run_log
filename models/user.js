@@ -22,7 +22,8 @@ const UserSchema = new mongoose.Schema({
       required: true
     }
   }]
-});
+},  { usePushEach: true }); // a workaround to make this work with Mongo 3.6 at mLab
+
 
 UserSchema.methods.toJSON = function () {
   let user = this,
